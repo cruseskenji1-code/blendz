@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blendz Coffee Shop Network</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Blendz home">
+        <span class="brand-mark">B</span>
+        <span>Blendz</span>
+      </a>
+      <nav class="nav">
+        <a href="#shops">Coffee Shops</a>
+        <a href="#jobs">Jobs</a>
+        <a href="#workspace">Workspace</a>
+      </nav>
+      <label class="role-picker">
+        <span>View as</span>
+        <select id="roleSelect">
+          <option value="superadmin">Super Admin</option>
+          <option value="admin">Admin</option>
+          <option value="owner">Owner</option>
+          <option value="employee">Employee</option>
+          <option value="customer" selected>Customer</option>
+        </select>
+      </label>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <img src="assets/coffee-hero.png" alt="Warm coffee shop counter with tables and plants" />
+        <div class="hero-copy">
+          <p class="eyebrow">Coffee places, jobs, and community reviews</p>
+          <h1>Blendz</h1>
+          <p class="lede">
+            Discover coffee shops, view ambience posts, apply for barista or bartender roles, and manage the whole platform by user level.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#shops">Browse shops</a>
+            <a class="button ghost" href="#jobs">Find work</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-band" aria-label="Platform overview">
+        <article>
+          <strong id="shopCount">0</strong>
+          <span>Coffee shops</span>
+        </article>
+        <article>
+          <strong id="jobCount">0</strong>
+          <span>Open jobs</span>
+        </article>
+        <article>
+          <strong id="userCount">0</strong>
+          <span>Users</span>
+        </article>
+        <article>
+          <strong id="transactionTotal">0</strong>
+          <span>Transactions</span>
+        </article>
+      </section>
+
+      <section id="shops" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Browse coffee shops</p>
+            <h2>Ambience posts</h2>
+          </div>
+          <div class="filters" role="search">
+            <input id="shopSearch" type="search" placeholder="Search shop, city, ambience" />
+            <select id="ambienceFilter" aria-label="Filter ambience">
+              <option value="all">All ambience</option>
+              <option value="Quiet">Quiet</option>
+              <option value="Study">Study</option>
+              <option value="Live music">Live music</option>
+              <option value="Pet friendly">Pet friendly</option>
+            </select>
+          </div>
+        </div>
+        <div id="shopGrid" class="shop-grid"></div>
+      </section>
+
+      <section id="jobs" class="section alt">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Browse work</p>
+            <h2>Hiring boards</h2>
+          </div>
+          <div class="filters">
+            <input id="jobSearch" type="search" placeholder="Search role or location" />
+          </div>
+        </div>
+        <div id="jobList" class="job-list"></div>
+      </section>
+
+      <section id="workspace" class="section workspace">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Role workspace</p>
+            <h2 id="workspaceTitle">Customer tools</h2>
+          </div>
+          <span id="roleBadge" class="badge">Customer</span>
+        </div>
+        <div id="workspacePanel" class="workspace-grid"></div>
+      </section>
+    </main>
+
+    <dialog id="commentDialog">
+      <form method="dialog" class="modal-form" id="commentForm">
+        <h3 id="commentTitle">Leave a comment</h3>
+        <input id="commentName" required placeholder="Your name" />
+        <textarea id="commentText" required rows="4" placeholder="Share your coffee shop experience"></textarea>
+        <div class="modal-actions">
+          <button class="button ghost" id="closeComment" type="button">Cancel</button>
+          <button class="button primary" type="submit">Post comment</button>
+        </div>
+      </form>
+    </dialog>
+
+    <footer>
+      <span>Blendz prototype</span>
+      <span>Built for coffee shop discovery, hiring, ambience posting, and role management.</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
