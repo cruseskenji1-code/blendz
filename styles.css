@@ -103,22 +103,57 @@ textarea {
   resize: vertical;
 }
 
-.hero {
-  position: relative;
-  min-height: calc(100vh - 64px);
-  display: grid;
-  align-items: end;
-  overflow: hidden;
-  background: #211b17;
+.hero{
+    position:relative;
+    overflow:hidden;
+    min-height:100vh;
 }
 
-.hero img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.hero-carousel{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
 }
+
+.carousel-track{
+    display:flex;
+    width:max-content;
+    height:100%;
+    animation:scrollLeft 40s linear infinite;
+}
+
+.carousel-track img{
+    width:100vw;      /* One image fills the screen */
+    height:100%;
+    object-fit:cover;
+    flex-shrink:0;
+}
+
+/* Dark overlay */
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:1;
+}
+
+/* Keep text above the carousel */
+.hero-copy{
+    position:relative;
+    z-index:2;
+}
+
+@keyframes scrollLeft{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+
 
 .hero::after {
   content: "";
@@ -460,4 +495,7 @@ footer {
   .filters select {
     width: 100%;
   }
+
+
+  
 }
